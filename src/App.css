@@ -19,7 +19,7 @@
 
 .list-item {
   border-bottom: solid 1px var(--main-br-color);;
-  padding: 5px;
+  padding: 10px;
   cursor: pointer;
 }
 
@@ -43,11 +43,15 @@
 
 .itemContent {
   border-bottom: solid 1px var(--main-br-color);
-  padding: 5px;
+  padding: 10px;
 }
 
 .itemContent:last-child {
   border-bottom: 0;
+}
+
+.itemContent:nth-child(2) {
+  padding-bottom: 30px;
 }
 
 img {
