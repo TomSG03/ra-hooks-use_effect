@@ -1,12 +1,10 @@
 # React
-### [Gh-Pages](https://tomsg03.github.io/ra-lifecycle-watches/)
+### [Gh-Pages](https://tomsg03.github.io/ra-hooks-use_effect/)
 
-[![CircleCI](https://circleci.com/gh/TomSG03/ra-lifecycle-watches/tree/main.svg?style=svg)](https://circleci.com/gh/TomSG03/ra-lifecycle-watches/tree/main)
+## [Домашнее задание к лекции «Hooks & Context API»](https://github.com/TomSG03/ra16-homeworks/tree/master/hooks-context)
 
-## [Домашнее задание к лекции «Жизненный цикл и работа с HTTP»](https://github.com/TomSG03/ra16-homeworks/tree/master/lifecycle-http)
-
-- [x] Мировые часы
-- [x] [Crud](https://github.com/TomSG03/ra-lifecycle-crud)
+- [x] useEffect
+- [x] [useJsonFetch](https://github.com/TomSG03/ra-hooks-use_json_fetch)
 
 ---
 [Спискок задач](https://github.com/TomSG03/ra-homeworks-list)
