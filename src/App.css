@@ -1,0 +1,32 @@
+.App {
+  min-width: 400px;
+  max-width: 900px;
+  margin: 40px auto;
+}
+
+.list {
+  list-style-type: none;
+  border: solid 1px;
+  padding: 0;
+  width: 30%;
+  user-select: none;
+  margin: 0;
+}
+
+.list-item {
+  border-bottom: solid 1px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.list-item:last-child {
+  border-bottom: 0;
+}
+
+.details-list {
+  display: flex;
+}
+
+.details-item {
+  margin-left: 40px;
+}
