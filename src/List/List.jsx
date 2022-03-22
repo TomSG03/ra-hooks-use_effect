@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import Details from './Details';
 import Loading from './Loading';
+import Error from './Error';
 
 function List({ url }) {
   const [list, setList] = useState([]);
@@ -15,6 +16,7 @@ function List({ url }) {
       .then((response) => response.json())
       .then((result) => {
         setList(result);
+        setError(null);
       })
       .catch((e) => {
         setError({ state: true, text: e.message });
@@ -39,15 +41,15 @@ function List({ url }) {
 
   return (
     <div className='details-list'>
-      {!loading ? getList() : <Loading />}
+      {(!loading && !error) ? getList() : <Loading />}
+      {error && <Error error={error}/>}
       {details && <Details url={url} id={details}/>}
     </div>
   )
 }
 
 List.propTypes = {
-  list: PropTypes.array,
-  handlerId: PropTypes.func
+  url: PropTypes.string
 }
 
 export default List

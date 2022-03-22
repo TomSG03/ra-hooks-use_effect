@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import Loading from './Loading';
+import Error from './Error';
 
 function Details({ url, id }) {
-  const [loading, setLoading] = useState(false);
-  const [details, setDetails] = useState();
+  const [loading, setLoading] = useState(true);
+  const [details, setDetails] = useState({});
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -13,7 +14,7 @@ function Details({ url, id }) {
       .then((response) => response.json())
       .then((result) => {
         setDetails(result);
-        console.log(result);
+        setError(null);
       })
       .catch((e) => {
         setError({ state: true, text: e.message });
@@ -23,29 +24,29 @@ function Details({ url, id }) {
       });
   }, [url, id])
 
+  const DetailsItem = () => {
+    return (
+      <div className='details-item'>
+        <img src={details.avatar} alt={`Foto ${details.name}`} />
+        <div className="itemContent">{details.name}</div>
+        <div className="itemContent">{details.details.city}</div>
+        <div className="itemContent">{details.details.company}</div>
+        <div className="itemContent">{details.details.position}</div>
+      </div>
+    )
+  }
+
   return (
-    <div className='details-item'>
-     {loading ? <Loading /> : <div>{id}</div> }      
+    <div className='details'>
+     {(loading || error) ? <Loading /> : <DetailsItem />}   
+     {error && <Error error={error}/>}   
     </div>
   )
 }
 
-Details.propTypes = {}
+Details.propTypes = {
+  url: PropTypes.string,
+  id: PropTypes.number
+}
 
 export default Details
-
-
-// import React from 'react'
-// import { connect } from 'react-redux'
-
-// export const Details = (props) => {
-//   return (
-//     <div>Details</div>
-//   )
-// }
-
-// const mapStateToProps = (state) => ({})
-
-// const mapDispatchToProps = {}
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Details)
