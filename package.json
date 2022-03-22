@@ -21,7 +21,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://TomSG03.github.io/ra-lifecycle-watches",
+  "homepage": "https://TomSG03.github.io/ra-hooks-use_effect",
   "eslintConfig": {
     "extends": [
       "react-app",
