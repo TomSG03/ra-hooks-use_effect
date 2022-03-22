@@ -27,14 +27,13 @@ function List({ url }) {
   }, [url])
 
   function handlerId(id) {
-    if (setDetails === id) return
     setDetails(id)
   }
 
   function getList() {
     return (
       <ul className='list'>
-        {list.map((e) => <li className='list-item' key={e.id} onClick={() => handlerId(e.id)}>{e.name}</li>)}
+        {list.map((e) => <li className={`list-item ${details === e.id ? 'selected' : ''}`} key={e.id} onClick={() => handlerId(e.id)}>{e.name}</li>)}
       </ul>
     )
   }
@@ -42,8 +41,8 @@ function List({ url }) {
   return (
     <div className='details-list'>
       {(!loading && !error) ? getList() : <Loading />}
-      {error && <Error error={error}/>}
-      {details && <Details url={url} id={details}/>}
+      {error && <Error error={error} />}
+      {details && <Details url={url} id={details} />}
     </div>
   )
 }
